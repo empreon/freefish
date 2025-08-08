@@ -1,36 +1,46 @@
 # Freefish
 
-A terminal-based chess AI implementing minimax algorithm with alpha-beta pruning and custom evaluation functions.
+Freefish is a chess AI implementing minimax with alpha-beta pruning, piece-square evaluations, and opening book support. It ships with a modern React UI and a FastAPI backend.
+
+Note: The core engine/algorithm was developed in 2021 while I was in high school. The React-based UI was added later.
+
+## One-command run
+
+PowerShell (Windows):
+```
+python -m venv .venv; .\.venv\Scripts\Activate.ps1; pip install -r requirements.txt; python main.py
+```
+
+This command will:
+- Start the backend API at `http://localhost:8000`
+- Install frontend deps (if missing) and start the web UI at `http://localhost:5173`
+- Open your browser to the UI
+
+If you already have a virtual environment active, you can simply run:
+```
+python main.py
+```
 
 ## Features
-**Core Algorithms**
-- Minimax decision-making with alpha-beta pruning optimization
-- Piece-square table evaluation using custom .npz data files
-- Opening book integration (Kasparov's preferred openings)
+- Minimax with alpha-beta pruning
+- Piece-square table evaluation (`Evaluate/piece_sq_tables.npz`)
+- Opening book (`OpeningBook/kasparov.bin`)
+- React UI with move history, branching, theme settings, and engine hint arrows
 
-**Terminal Interface**
-- FEN notation input/output
-- ASCII board visualization
-- Best move recommendation system
+## Project layout
+- `server/` FastAPI app exposing `/best-move`
+- `web/` Vite + React frontend (TypeScript)
+- `Algorithm/`, `Evaluate/`, `Convert/` core engine and utilities
+- `main.py` unified launcher that starts backend and frontend
 
-## Requirements
-- Python 3.9+
-- numpy
-- python-chess
+## Settings & usage
+- Change board colors and UI theme in the Settings panel (button in the Move History header)
+- Click any move to jump there; making a different move creates a new branch
+- Click Best Move to see a suggested arrow; Clear Hint to remove it
 
-## Installation
-```
-git clone https://github.com/Empreon/Freefish.git
-pip install -r requirements.txt
-```
-
-## Usage
-1. Run the engine:
-2. Input FEN notation when prompted:
-3. Receive AI analysis:
-- Best move in algebraic notation
-- Resulting FEN position
-- ASCII board visualization
+## Notes
+- Requires Python 3.9+
+- Node.js is optional but required for the web UI. If `npm` is not found, the backend API still runs.
 
 ## Customization
 **NPZ Generator**
