@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freefish</title>
+    <style>
+      :root {
+        --bg: #2e3136;
+        --panel: #3a3f45;
+        --panel-weak: #2e3136;
+        --text: #e6e6e6;
+        --muted: #cbd5e1;
+        --accent: #7aa2f7;
+        --btn: #4b5563;
+        --btn-text: #ffffff;
+      }
+      [data-theme="dark"] {
+        --bg: #0f1220;
+        --panel: #171a2a;
+        --panel-weak: #101324;
+        --text: #e6e6e6;
+        --muted: #9aa5b1;
+        --accent: #7aa2f7;
+        --btn: #2a2f45;
+        --btn-text: #e6e6e6;
+      }
+      [data-theme="light"] {
+        --bg: #f6f8fb;
+        --panel: #ffffff;
+        --panel-weak: #eef2f7;
+        --text: #0b1021;
+        --muted: #4b5563;
+        --accent: #2563eb;
+        --btn: #e5e7eb;
+        --btn-text: #0b1021;
+      }
+      body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+      #root { min-height: 100vh; display: grid; place-items: start center; padding: 16px; box-sizing: border-box; }
+      button { font: inherit; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  </html>
+
+
