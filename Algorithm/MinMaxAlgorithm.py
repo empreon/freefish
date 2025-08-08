@@ -1,7 +1,7 @@
 from Evaluate.BoardEvaluation import evaluation
 
 def moveSearch(board, depth, alpha, beta, turn):
-    if depth == 0 or board.is_game_over:
+    if depth == 0 or board.is_game_over():
         return evaluation(board)
     if turn:
         value = -9999
